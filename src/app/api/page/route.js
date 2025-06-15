@@ -7,7 +7,7 @@ import getNextSequenceValue from "@/db/utils/getNextSequenceValue";
 import { v4 as uuidv4 } from 'uuid';
 
 const url = process.env.MONGODB_URL;
-const dbName = 'scaledb';
+const dbName = 'db';
 const collectionName = 'pages'; // Added collection name
 
 let client;
@@ -28,12 +28,9 @@ async function connectToDatabase() {
 export async function GET(request) {
     const session = await getServerSession(options);
     if (!session) {
-        return NextResponse.json(
-            { message: "Not Authenticated!" },
-            {
-                status: 401,
-            }
-        );
+        return NextResponse.json({ message: "Not Authenticated!" }, {
+            status: 401,
+        });
     }
     try {
         await connectToDatabase();
@@ -62,12 +59,9 @@ export async function GET(request) {
 export async function POST(request) {
     const session = await getServerSession(options);
     if (!session) {
-        return NextResponse.json(
-            { message: "Not Authenticated!" },
-            {
-                status: 401,
-            }
-        );
+        return NextResponse.json({ message: "Not Authenticated!" }, {
+            status: 401,
+        });
     }
     try {
         await connectToDatabase();
@@ -105,12 +99,9 @@ export async function POST(request) {
 export async function PUT(request) {
     const session = await getServerSession(options);
     if (!session) {
-        return NextResponse.json(
-            { message: "Not Authenticated!" },
-            {
-                status: 401,
-            }
-        );
+        return NextResponse.json({ message: "Not Authenticated!" }, {
+            status: 401,
+        });
     }
     await connectToDatabase();
     try {
@@ -122,10 +113,7 @@ export async function PUT(request) {
         updateData.updatedAt = new Date();
 
 
-        const pageData = await collection.findOneAndUpdate(
-            { _id: new ObjectId(_id) },
-            { $set: updateData },
-            { returnDocument: 'after' } // This option ensures the returned document is the updated one
+        const pageData = await collection.findOneAndUpdate({ _id: new ObjectId(_id) }, { $set: updateData }, { returnDocument: 'after' } // This option ensures the returned document is the updated one
         );
 
         console.log("Updated ", updateData.slug);
@@ -145,12 +133,9 @@ export async function PUT(request) {
 export async function DELETE(request) {
     const session = await getServerSession(options);
     if (!session) {
-        return NextResponse.json(
-            { message: "Not Authenticated!" },
-            {
-                status: 401,
-            }
-        );
+        return NextResponse.json({ message: "Not Authenticated!" }, {
+            status: 401,
+        });
     }
     try {
         await connectToDatabase();

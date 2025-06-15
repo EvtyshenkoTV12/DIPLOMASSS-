@@ -247,7 +247,7 @@ const Register = () => {
                     <div>
                         <div className="flex justify-center items-center fixed bottom-0 w-full p-4">
                             <span className="text-slate-700 text-sm cursor-pointer">
-                                &copy; Scale {currentYear}. All rights reserved.
+                                
                             </span>
                         </div>
                         <div className="flex justify-end fixed bottom-0 right-0 p-4 items-end space-y-3">

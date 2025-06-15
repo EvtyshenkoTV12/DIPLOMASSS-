@@ -9,11 +9,11 @@ export function middleware(request: NextRequest) {
   let isLogin = request.cookies.get("logged");
   if (!isLogin) {
     if (request.nextUrl.pathname.startsWith("/scale")) {
-      // return NextResponse.rewrite(new URL("/", request.url));
+
       return NextResponse.redirect(baseURL);
     }
     if (request.nextUrl.pathname.startsWith("/onboard")) {
-      // return NextResponse.rewrite(new URL("/", request.url));
+
       return NextResponse.redirect(baseURL);
     }
   } else {

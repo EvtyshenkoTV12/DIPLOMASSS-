@@ -18,16 +18,16 @@ async function connectToEmail(email, otp) {
 
     // Email content
     const mailOptions = {
-        from: 'team@scale.ac',
+        from: 'team@.ac',
         to: email,
-        subject: 'Scale Sign Up Verification Code',
+        subject: ' Sign Up Verification Code',
         html: `
         <table width="100%" border="0" cellspacing="0" cellpadding="0" 
             style="margin: auto; max-width: 600px; background-color: #ffffff; font-family: Arial, Helvetica, sans-serif; color: #222222;">
             <tbody>
                 <tr>
                     <td style="padding: 20px 0; text-align: center; font-size: 24px; font-weight: 600; color: #333333;">
-                        Scale Sign Up Verification Code
+                         Sign Up Verification Code
                     </td>
                 </tr>
                 <tr>
@@ -50,8 +50,8 @@ async function connectToEmail(email, otp) {
                 </tr>
                 <tr>
                     <td style="padding: 20px; text-align: center; font-size: 14px; color: #999999;">
-                        <a href="https://scale.ac/privacy-policy" style="color: #0066cc; text-decoration: none;">Privacy Policy</a> | 
-                        <a href="mailto:contact@scale.ac" style="color: #0066cc; text-decoration: none;">Contact Support</a>
+                        <a href="https://.ac/privacy-policy" style="color: #0066cc; text-decoration: none;">Privacy Policy</a> | 
+                        <a href="mailto:contact@.ac" style="color: #0066cc; text-decoration: none;">Contact Support</a>
                     </td>
                 </tr>
             </tbody>
@@ -90,7 +90,8 @@ export async function POST(request) {
         dateFormat: '',
         otp: otp,
         email,
-        createdBy: email, createdAt: new Date()
+        createdBy: email,
+        createdAt: new Date()
     });
 
     return new Response(JSON.stringify(users), { status: 200 });
